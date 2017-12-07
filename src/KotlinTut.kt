@@ -52,4 +52,15 @@ fun main(args: Array<String>){
     for (x in rng3) println("rng2: $x")
 
     for (x in tenTo1.reversed()) println("Reverse: $x")
+
+    /** Conditionals */
+    when (age){
+        0,1,2,3,4 -> println("Go to preschool")
+        5 -> println("Go to Kindergarten")
+        in 6..17 -> {
+            val grade = age - 5
+            println("Go to Grade $grade")
+        }
+        else -> println("Go to College")
+    }
 }
