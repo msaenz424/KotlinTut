@@ -25,4 +25,31 @@ fun main(args: Array<String>){
     println("2nd Index of str1: ${str1[2]}")
     println("Index 2 - 7: ${str1.subSequence(2,7)}")
     println("Contains random: ${str1.contains("random")}")
+
+    /** Arrays */
+    var mArray = arrayOf(9, 1.23, "Mike")
+    println(mArray[2])
+    mArray[1] = 3.1416
+    println("Array length: ${mArray.size}")
+    println("Mike is in array: ${mArray.contains("Mike")}")
+    var partArray = mArray.copyOfRange(0, 1)
+    println("First element : ${mArray.first()}")
+    println("Mike index: ${mArray.indexOf("Mike")}")
+
+    var sqArray = Array(5, {x -> x * x})
+    println("Square of 4: ${sqArray[4]}")
+
+    var intArray: Array<Int> = arrayOf(1, 2, 3)
+
+    // Ranges
+    val oneTo10 = 1..10
+    val alpha = "A".."Z"
+    println("R in alpha: ${"R" in alpha}")
+    val tenTo1 = 10.downTo(1)
+    val twoTo20 = 2.rangeTo(20)
+    val rng3 = oneTo10.step(3)
+
+    for (x in rng3) println("rng2: $x")
+
+    for (x in tenTo1.reversed()) println("Reverse: $x")
 }
