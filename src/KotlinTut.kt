@@ -98,4 +98,58 @@ fun main(args: Array<String>){
     for ((index, value) in arr3.withIndex()){
         println("Index: $index - Value: $value")
     }
+
+    /**  functions */
+    fun add(num1: Int, num2: Int) : Int = num1 + num2
+    println("5 + 4 = ${add(5,4)}")
+
+    fun subtract(num1: Int = 1, num2: Int = 1) = num1 - num2    // Default values. No need for return type
+    println("5 - 4 = ${subtract(5, 4)}")
+    println("4 - 5 = ${subtract(num1 = 5, num2 = 4)}")
+
+    fun sayHello(name: String) : Unit = println("Hello $name")
+    sayHello("Miguel")
+
+    fun nextTwo(num: Int): Pair<Int, Int>{
+        return Pair(num + 1, num + 2)
+    }
+
+    val (two, three) = nextTwo(1)
+    println("1 $two $three")
+
+    fun getSum(vararg nums: Int): Int{  // vararg acts like an array
+        var sum = 0
+
+        nums.forEach { i -> sum += i }  // for each i -> (do something); i contains the value
+
+        return sum
+    }
+
+    println("1 + 2 + 3 + 4 + 5 = ${getSum(1,2,3,4,5)}")
+
+    val multiply = {num1: Int, num2: Int -> num1 * num2}
+    println("5 * 3 = ${multiply(5,3)}")
+
+    // Higher Order Functions
+    val numList = 1..20
+    val evenList = numList.filter {it % 2 == 0}
+    evenList.forEach { i -> println(i) }
+
+    // function that returns a created function
+    // (Int) is the function that is going to be returned
+    fun makeMathFunc(num1: Int): (Int) -> Int = {num2 -> num1 * num2}
+
+    val mult3 = makeMathFunc(3)
+    println("5 * 3 = ${mult3(5)}")
+
+    fun mathOnList(numList: Array<Int>, mFunction: (num: Int) -> Int){  // receives a list and a function that returns an int
+        for (num in numList){
+            println("MathOnList ${mFunction(num)}")
+        }
+    }
+
+    val multiply2 = {num1: Int -> num1 * 2}     // this is a function that multiples by 2 a number passed in
+    val numList2 = arrayOf(1, 2, 3, 4, 5)
+    mathOnList(numList2, multiply2)
+
 }
