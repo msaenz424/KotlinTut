@@ -205,6 +205,10 @@ fun main(args: Array<String>){
     val bowser = Animal("Bowser", 20.0, 13.5)
     bowser.getInfo()
 
+    /** Inheritance */
+    val spot = Dog("Spot", 20.0, 14.5, "Paul Smith")
+    spot.getInfo()
+
 }
 
 open class Animal(val name: String,
@@ -221,5 +225,14 @@ open class Animal(val name: String,
 
     open fun getInfo(): Unit{
         println("Name: $name Height: $height Weight: $weight")
+    }
+}
+
+class Dog(name: String,
+          height: Double,
+          weight: Double,
+          var owner: String) : Animal(name, height, weight) {
+    override fun getInfo(): Unit {
+        println("$name is $height, weights $weight and the owner is $owner")
     }
 }
