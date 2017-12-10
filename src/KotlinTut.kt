@@ -201,4 +201,25 @@ fun main(args: Array<String>){
         println("Key: $x Value: $y")
     }
 
+    /** Classes */
+    val bowser = Animal("Bowser", 20.0, 13.5)
+    bowser.getInfo()
+
+}
+
+open class Animal(val name: String,
+                  val height: Double,
+                  val weight: Double){
+    // Objects are initialized inside init function.
+    // Basically it checks is values are ok
+    init {
+        val regex = Regex(".*\\d+.*")
+        require(!name.matches(regex)) {"Animal can't contain numbers"}
+        require(height > 0) {"Height must be greater than zero"}
+        require(weight > 0) {"Weight must be greater than zero"}
+    }
+
+    open fun getInfo(): Unit{
+        println("Name: $name Height: $height Weight: $weight")
+    }
 }
