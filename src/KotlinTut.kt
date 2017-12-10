@@ -1,4 +1,5 @@
 import java.util.*
+import javax.swing.text.html.ObjectView
 
 fun main(args: Array<String>){
 
@@ -209,6 +210,10 @@ fun main(args: Array<String>){
     val spot = Dog("Spot", 20.0, 14.5, "Paul Smith")
     spot.getInfo()
 
+    /** Interfaces */
+    val tweety = Bird("Tweety", true)
+    tweety.fly(10.0)
+
 }
 
 open class Animal(val name: String,
@@ -234,5 +239,19 @@ class Dog(name: String,
           var owner: String) : Animal(name, height, weight) {
     override fun getInfo(): Unit {
         println("$name is $height, weights $weight and the owner is $owner")
+    }
+}
+
+interface Flyable{
+    var flies: Boolean
+
+    fun fly(distMile: Double): Unit
+}
+
+class Bird constructor(val name: String, override var flies: Boolean = true) : Flyable {
+    override fun fly(distMiles: Double): Unit {
+        if (flies){
+            println("$name flies $distMiles miles")
+        }
     }
 }
