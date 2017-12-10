@@ -185,4 +185,20 @@ fun main(args: Array<String>){
     list1.removeAt(1)
     list1.forEach { n -> println("Mutable list item $n") }
 
+    val map = mutableMapOf<Int, Any?>()
+    val map2 = mutableMapOf(1 to "Mike", 2 to 25)       // this is how to initialize a map with values
+
+    map[1] = "Guz"
+    map[2] = 50
+
+    println("Map Size: ${map.size}")
+
+    map.put(3, "Tarzana")
+
+    map.remove(1)
+    
+    for ((x, y) in map){
+        println("Key: $x Value: $y")
+    }
+
 }
