@@ -152,4 +152,16 @@ fun main(args: Array<String>){
     val numList2 = arrayOf(1, 2, 3, 4, 5)
     mathOnList(numList2, multiply2)
 
+    /** Exception handling */
+    val divisor = 0
+    try {
+        if (divisor == 0) {
+            throw IllegalArgumentException("Can't divide by zero")
+        } else {
+            println("5 / $divisor =  ${5/divisor}")
+        }
+    } catch (e: IllegalArgumentException){
+        println("${e.message}")
+    }
+
 }
